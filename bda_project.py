@@ -88,7 +88,7 @@ best_pipeline_model = None
 
 # Train and evaluate models
 for model_name, model in models.items():
-    print(f"🔵 Training {model_name}...")
+    print(f"Training {model_name}...")
 
     paramGrid = ParamGridBuilder()
     if model_name == "LinearRegression":
@@ -151,6 +151,6 @@ with mlflow.start_run(run_name=f"{best_model_name}_crossval"):
 
     mlflow.spark.log_model(best_pipeline_model, f"{best_model_name}_best_model")
 
-    print(f"✅ {best_model_name} logged with RMSE={best_rmse:.3f}")
+    print(f" {best_model_name} logged with RMSE={best_rmse:.3f}")
 
-print(f"\n🏆 Best Model: {best_model_name} with RMSE: {best_rmse:.3f}")
+print(f"\n Best Model: {best_model_name} with RMSE: {best_rmse:.3f}")
